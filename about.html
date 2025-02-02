@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>About - Horizon Street Wear</title>
     <style>
         * {
@@ -71,6 +72,139 @@
             margin-bottom: 20px;
             font-size: 28px;
         }
+
+
+
+
+
+
+        /* Common responsive styles for all pages */
+@media screen and (max-width: 768px) {
+  /* Navigation */
+  .nav {
+    padding: 15px 10px;
+  }
+  
+  .nav a {
+    margin: 0 10px;
+    font-size: 16px;
+  }
+
+  /* Page titles */
+  .page-title, .section-title {
+    font-size: 36px;
+    margin: 30px 0;
+  }
+
+  /* Products page */
+  .products-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 10px;
+  }
+
+  .product-card {
+    padding: 15px;
+  }
+
+  .product-views {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .view-label {
+    font-size: 20px;
+  }
+
+  /* Single product page */
+  .product-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 20px 10px;
+  }
+
+  .product-title {
+    font-size: 32px;
+  }
+
+  .product-price {
+    font-size: 28px;
+  }
+
+  .size-selector {
+    justify-content: flex-start;
+  }
+
+  /* Home page */
+  .hero h1 {
+    font-size: 48px;
+  }
+
+  .best-sellers {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 10px;
+  }
+
+  /* About page */
+  .about-content {
+    padding: 15px;
+  }
+
+  .mission {
+    padding: 25px;
+  }
+
+  .slogan {
+    font-size: 20px;
+  }
+
+  /* Contact page */
+  .contact-content {
+    padding: 15px;
+  }
+
+  .contact-info {
+    padding: 25px;
+  }
+
+  .social-links {
+    flex-wrap: wrap;
+  }
+}
+
+/* Additional tablet-specific adjustments */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .best-sellers {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Small phone adjustments */
+@media screen and (max-width: 375px) {
+  .nav a {
+    margin: 0 5px;
+    font-size: 14px;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  .product-title {
+    font-size: 28px;
+  }
+}
+
+/* Ensure images are responsive */
+img {
+  max-width: 100%;
+  height: auto;
+}
     </style>
 </head>
 <body>
@@ -95,5 +229,14 @@
 
         <p>Our designs combine high-quality materials with innovative patterns and bold aesthetics. We're committed to creating streetwear that's not just clothing, but a statement of individuality.</p>
     </div>
+
+    <div style="display: flex; justify-content: center; align-items: center; margin: 40px auto;">
+        <img src="images/cust.png" alt="payment:bit,facebook,bank transfer">
+    </div>
+
+
+
+
+
 </body>
 </html>

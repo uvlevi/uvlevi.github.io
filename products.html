@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Products - Horizon Street Wear</title>
     <style>
         * {
@@ -50,12 +51,23 @@
             margin: 0 auto;
         }
 
+        .product-link {
+            text-decoration: none;
+            color: inherit;
+        }
+
         .product-card {
             background-color: #111;
             border-radius: 10px;
             padding: 20px;
             display: flex;
             flex-direction: column;
+            transition: background-color 0.3s;
+        }
+
+        .product-card:hover {
+            background-color: #222;
+            cursor: pointer;
         }
 
         .product-views {
@@ -73,6 +85,7 @@
         .product-view img {
             width: 100%;
             height: auto;
+            object-fit: cover;
             margin-bottom: 10px;
         }
 
@@ -116,6 +129,136 @@
             background: white;
             color: black;
         }
+
+
+
+        /* Common responsive styles for all pages */
+@media screen and (max-width: 768px) {
+  /* Navigation */
+  .nav {
+    padding: 15px 10px;
+  }
+  
+  .nav a {
+    margin: 0 10px;
+    font-size: 16px;
+  }
+
+  /* Page titles */
+  .page-title, .section-title {
+    font-size: 36px;
+    margin: 30px 0;
+  }
+
+  /* Products page */
+  .products-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 10px;
+  }
+
+  .product-card {
+    padding: 15px;
+  }
+
+  .product-views {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .view-label {
+    font-size: 20px;
+  }
+
+  /* Single product page */
+  .product-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 20px 10px;
+  }
+
+  .product-title {
+    font-size: 32px;
+  }
+
+  .product-price {
+    font-size: 28px;
+  }
+
+  .size-selector {
+    justify-content: flex-start;
+  }
+
+  /* Home page */
+  .hero h1 {
+    font-size: 48px;
+  }
+
+  .best-sellers {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 10px;
+  }
+
+  /* About page */
+  .about-content {
+    padding: 15px;
+  }
+
+  .mission {
+    padding: 25px;
+  }
+
+  .slogan {
+    font-size: 20px;
+  }
+
+  /* Contact page */
+  .contact-content {
+    padding: 15px;
+  }
+
+  .contact-info {
+    padding: 25px;
+  }
+
+  .social-links {
+    flex-wrap: wrap;
+  }
+}
+
+/* Additional tablet-specific adjustments */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .best-sellers {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Small phone adjustments */
+@media screen and (max-width: 375px) {
+  .nav a {
+    margin: 0 5px;
+    font-size: 14px;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  .product-title {
+    font-size: 28px;
+  }
+}
+
+/* Ensure images are responsive */
+img {
+  max-width: 100%;
+  height: auto;
+}
     </style>
 </head>
 <body>
@@ -129,74 +272,80 @@
     <h1 class="page-title">ALL PRODUCTS</h1>
 
     <div class="products-grid">
-        <!-- White Butterfly Shirt -->
-        <div class="product-card">
-            <div class="product-views">
-                <div class="product-view">
-                    <img src="images\frontpigion.png" alt="White Butterfly Shirt Front">
-                    <div class="view-label">FRONT</div>
+        <!-- White Pigeons Shirt -->
+        <a href="shirtpigeons.html" class="product-link">
+            <div class="product-card">
+                <div class="product-views">
+                    <div class="product-view">
+                        <img src="images/frontpigion.png" alt="White Butterfly Shirt Front">
+                        <div class="view-label">FRONT</div>
+                    </div>
+                    <div class="product-view">
+                        <img src="images/backpigion.png" alt="White Butterfly Shirt Back">
+                        <div class="view-label">BACK</div>
+                    </div>
                 </div>
-                <div class="product-view">
-                    <img src="images\backpigion.png" alt="White Butterfly Shirt Back">
-                    <div class="view-label">BACK</div>
+                <div class="product-info">
+                    <h2 class="product-title">White Shirt "Pigeons"</h2>
+                    <p class="price">₪120</p>
+                    <div class="size-selector">
+                        <button class="size-btn">S</button>
+                        <button class="size-btn">M</button>
+                        <button class="size-btn">L</button>
+                    </div>
                 </div>
             </div>
-            <div class="product-info">
-                <h2 class="product-title">White Shirt "Butterfly"</h2>
-                <p class="price">₪120</p>
-                <div class="size-selector">
-                    <button class="size-btn">S</button>
-                    <button class="size-btn">M</button>
-                    <button class="size-btn">L</button>
-                </div>
-            </div>
-        </div>
+        </a>
 
         <!-- Black Flower Shirt -->
-        <div class="product-card">
-            <div class="product-views">
-                <div class="product-view">
-                    <img src="images\frontflower.png" alt="Black Flower Shirt Front">
-                    <div class="view-label">FRONT</div>
+        <a href="shirtpigeons.html" class="product-link">
+            <div class="product-card">
+                <div class="product-views">
+                    <div class="product-view">
+                        <img src="images/frontflower.png" alt="Black Flower Shirt Front">
+                        <div class="view-label">FRONT</div>
+                    </div>
+                    <div class="product-view">
+                        <img src="images/backflower.png" alt="Black Flower Shirt Back">
+                        <div class="view-label">BACK</div>
+                    </div>
                 </div>
-                <div class="product-view">
-                    <img src="images\backflower.png" alt="Black Flower Shirt Back">
-                    <div class="view-label">BACK</div>
+                <div class="product-info">
+                    <h2 class="product-title">Black Shirt "Flower"</h2>
+                    <p class="price">₪120</p>
+                    <div class="size-selector">
+                        <button class="size-btn">S</button>
+                        <button class="size-btn">M</button>
+                        <button class="size-btn">L</button>
+                    </div>
                 </div>
             </div>
-            <div class="product-info">
-                <h2 class="product-title">Black Shirt "Flower"</h2>
-                <p class="price">₪120</p>
-                <div class="size-selector">
-                    <button class="size-btn">S</button>
-                    <button class="size-btn">M</button>
-                    <button class="size-btn">L</button>
-                </div>
-            </div>
-        </div>
+        </a>
 
-        <!-- White Pigeons Shirt -->
-        <div class="product-card">
-            <div class="product-views">
-                <div class="product-view">
-                    <img src="images\butterfly.png" alt="White Pigeons Shirt Front">
-                    <div class="view-label">FRONT</div>
+        <!-- White Butterfly Shirt -->
+        <a href="shirtpigeons.html" class="product-link">
+            <div class="product-card">
+                <div class="product-views">
+                    <div class="product-view">
+                        <img src="images/frontbutterfly.png" alt="White Pigeons Shirt Front">
+                        <div class="view-label">FRONT</div>
+                    </div>
+                    <div class="product-view">
+                        <img src="images/backbutterfly.png" alt="White Pigeons Shirt Back">
+                        <div class="view-label">BACK</div>
+                    </div>
                 </div>
-                <div class="product-view">
-                    <img src="images\backbutterfly.png" alt="White Pigeons Shirt Back">
-                    <div class="view-label">BACK</div>
+                <div class="product-info">
+                    <h2 class="product-title">White Shirt "Butterfly"</h2>
+                    <p class="price">₪120</p>
+                    <div class="size-selector">
+                        <button class="size-btn">S</button>
+                        <button class="size-btn">M</button>
+                        <button class="size-btn">L</button>
+                    </div>
                 </div>
             </div>
-            <div class="product-info">
-                <h2 class="product-title">White Shirt "Pigeons"</h2>
-                <p class="price">₪120</p>
-                <div class="size-selector">
-                    <button class="size-btn">S</button>
-                    <button class="size-btn">M</button>
-                    <button class="size-btn">L</button>
-                </div>
-            </div>
-        </div>
+        </a>
     </div>
 </body>
 </html>

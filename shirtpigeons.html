@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Spirit Pigeons Shirt - Horizon Street Wear</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            padding-top: 80px;
+        }
+
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px;
+            background-color: rgba(0,0,0,0.9);
+            z-index: 100;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 18px;
+        }
+
+        .product-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .product-gallery {
+            position: relative;
+        }
+
+        .main-image {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .image-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 20px 15px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .image-nav:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .prev-image {
+            left: 10px;
+        }
+
+        .next-image {
+            right: 10px;
+        }
+
+        .image-selector {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+
+        .image-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #333;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .image-dot.active {
+            background-color: #fff;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-title {
+            font-size: 42px;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .product-price {
+            font-size: 32px;
+            margin-bottom: 30px;
+            color: #d4d4d4;
+        }
+
+        .product-description {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            color: #a0a0a0;
+        }
+
+        .size-guide {
+            margin-bottom: 30px;
+        }
+
+        .size-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .size-selector {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .size-btn {
+            width: 50px;
+            height: 50px;
+            border: 1px solid #fff;
+            background: none;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .size-btn:hover {
+            background: #fff;
+            color: #000;
+        }
+
+        .size-btn.selected {
+            background: #fff;
+            color: #000;
+        }
+
+        .product-details {
+            margin-top: 40px;
+            padding-top: 40px;
+            border-top: 1px solid #333;
+        }
+
+        .details-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .details-list {
+            list-style: none;
+            color: #a0a0a0;
+        }
+
+        .details-list li {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .add-to-cart {
+            width: 100%;
+            padding: 20px;
+            background: #fff;
+            color: #000;
+            border: none;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 30px;
+            transition: opacity 0.3s ease;
+        }
+
+        .add-to-cart:hover {
+            opacity: 0.9;
+        }
+
+        .shipping-info {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #888;
+        }
+
+        /* Common responsive styles for all pages */
+@media screen and (max-width: 768px) {
+  /* Navigation */
+  .nav {
+    padding: 15px 10px;
+  }
+  
+  .nav a {
+    margin: 0 10px;
+    font-size: 16px;
+  }
+
+  /* Page titles */
+  .page-title, .section-title {
+    font-size: 36px;
+    margin: 30px 0;
+  }
+
+  /* Products page */
+  .products-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 10px;
+  }
+
+  .product-card {
+    padding: 15px;
+  }
+
+  .product-views {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .view-label {
+    font-size: 20px;
+  }
+
+  /* Single product page */
+  .product-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 20px 10px;
+  }
+
+  .product-title {
+    font-size: 32px;
+  }
+
+  .product-price {
+    font-size: 28px;
+  }
+
+  .size-selector {
+    justify-content: flex-start;
+  }
+
+  /* Home page */
+  .hero h1 {
+    font-size: 48px;
+  }
+
+  .best-sellers {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 10px;
+  }
+
+  /* About page */
+  .about-content {
+    padding: 15px;
+  }
+
+  .mission {
+    padding: 25px;
+  }
+
+  .slogan {
+    font-size: 20px;
+  }
+
+  /* Contact page */
+  .contact-content {
+    padding: 15px;
+  }
+
+  .contact-info {
+    padding: 25px;
+  }
+
+  .social-links {
+    flex-wrap: wrap;
+  }
+}
+
+/* Additional tablet-specific adjustments */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .best-sellers {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Small phone adjustments */
+@media screen and (max-width: 375px) {
+  .nav a {
+    margin: 0 5px;
+    font-size: 14px;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  .product-title {
+    font-size: 28px;
+  }
+}
+
+/* Ensure images are responsive */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="product-container">
+        <div class="product-gallery">
+            <img id="mainImage" src="images/frontpigion.png" alt="Spirit Pigeons Shirt" class="main-image">
+            <button class="image-nav prev-image" onclick="changeImage(-1)">❮</button>
+            <button class="image-nav next-image" onclick="changeImage(1)">❯</button>
+            <div class="image-selector">
+                <div class="image-dot active" onclick="showImage(0)"></div>
+                <div class="image-dot" onclick="showImage(1)"></div>
+                <div class="image-dot" onclick="showImage(2)"></div>
+                <div class="image-dot" onclick="showImage(3)"></div>
+            </div>
+        </div>
+
+        <div class="product-info">
+            <h1 class="product-title">SPIRIT PIGEONS SHIRT</h1>
+            <p class="product-price">₪120</p>
+            
+            <div class="product-description">
+                A statement piece that embodies freedom and urban style. This premium cotton shirt features our signature pigeons design, representing the spirit of the streets and the freedom to express yourself.
+            </div>
+
+            <div class="size-guide">
+                <h2 class="size-title">SELECT SIZE</h2>
+                <div class="size-selector">
+                    <button class="size-btn" onclick="selectSize(this)">S</button>
+                    <button class="size-btn" onclick="selectSize(this)">M</button>
+                    <button class="size-btn" onclick="selectSize(this)">L</button>
+                </div>
+            </div>
+
+            <button class="add-to-cart" onclick="window.location.href='contact.html'">ADD TO CART</button>
+
+            <div class="product-details">
+                <h3 class="details-title">PRODUCT DETAILS</h3>
+                <ul class="details-list">
+                    <li>• 100% Premium Cotton</li>
+                    <li>• High-quality screen printing</li>
+                    <li>• Regular fit</li>
+                    <li>• Pre-washed to prevent shrinkage</li>
+                    <li>• Made with love in Israel</li>
+                </ul>
+            </div>
+
+            <p class="shipping-info">
+                Free shipping on orders over ₪200. 14-day return policy for unworn items.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        const images = [
+            "images/frontpigion.png",
+            "images/backpigion.png",
+            "images/spirit.png",
+            "images/spirit.png"
+        ];
+        let currentImageIndex = 0;
+
+        function showImage(index) {
+            const mainImage = document.getElementById('mainImage');
+            const dots = document.querySelectorAll('.image-dot');
+            
+            currentImageIndex = index;
+            mainImage.src = images[index];
+            
+            // Update dots
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        }
+
+        function changeImage(direction) {
+            let newIndex = currentImageIndex + direction;
+            
+            // Handle wrapping around
+            if (newIndex >= images.length) newIndex = 0;
+            if (newIndex < 0) newIndex = images.length - 1;
+            
+            showImage(newIndex);
+        }
+
+        function selectSize(button) {
+            // Remove selected class from all buttons
+            document.querySelectorAll('.size-btn').forEach(btn => {
+                btn.classList.remove('selected');
+            });
+            // Add selected class to clicked button
+            button.classList.add('selected');
+        }
+    </script>
+</body>
+</html>
